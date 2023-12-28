@@ -1,0 +1,17 @@
+{
+  "name": "playwright_api_and_web",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Zhivko Kostadinov",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.5"
+  },
+  "scripts": {
+    "tests:api": "npx playwright test tests/api_tests/api.spec.js",
+    "tests:web": "npx playwright test tests/web_tests/login.spec.js",
+    "tests:web:silent": "npx playwright test --ui tests/web_tests/login.spec.js",
+    "tests": "npx playwright test"
+  }
+}
