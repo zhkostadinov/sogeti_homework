@@ -3,7 +3,7 @@ exports.Dashboard = class Dashboard{
     constructor(page){
         this.page = page;
         this.acceptCookies = '//button[@class="acceptCookie"]';
-        this.servicesLink = '//*[@id="main-menu"]/ul/li[3]/div[1]/span'
+        this.servicesNavLink = '//nav[@id="main-menu"]/ul/li[3]/div[1]/span';
         this.automationLink = '//a[contains(@class, "subMenuLink") and normalize-space(text()) = "Automation"]';
         this.automationPageText = '//h3[text()="Automation – Drive Business Excellence"]'
     }
@@ -17,8 +17,9 @@ exports.Dashboard = class Dashboard{
     }
 
     async navigate_to_automation_page(){
-        await this.page.hover(this.servicesLink);
-        await this.page.click(this.automationLink);  
+        await this.page.hover(this.servicesNavLink);
+        await this.page.click(this.automationLink);
+
     }
 
     async get_current_page_url(){
@@ -30,12 +31,12 @@ exports.Dashboard = class Dashboard{
     }
 
     async get_colors() {
-        const elementServicesLink = await this.page.waitForSelector(this.servicesLink);
+        const elementServicesLink = await this.page.waitForSelector(this.servicesNavLink);
         const colorServicesLink = await elementServicesLink.evaluate((el) => {
               return window.getComputedStyle(el).getPropertyValue('color');
         });
 
-        await this.page.hover(this.servicesLink);
+        await this.page.hover(this.servicesNavLink);
 
         const elementAutomationLink = await this.page.waitForSelector(this.automationLink);
         const colorAutomationLink = await elementAutomationLink.evaluate((el) => {

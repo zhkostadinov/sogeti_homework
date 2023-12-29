@@ -11,8 +11,9 @@
   },
   "scripts": {
     "tests:api": "npx playwright test tests/api_tests/api.spec.js",
-    "tests:web": "npx playwright test tests/web_tests/login.spec.js",
-    "tests:web:silent": "npx playwright test --ui tests/web_tests/login.spec.js",
+    "tests:api:testdriven": "npx playwright test tests/api_tests/api.test.driven.spec.js",
+    "tests:web": "npx playwright test --ui tests/web_tests/dashboard.spec.js",
+    "tests:all": "npx playwright test --ui",
     "tests": "npx playwright test"
   }
 }

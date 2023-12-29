@@ -32,7 +32,7 @@ test.describe("Web tests", ()=> {
         expect(colors.colorAutomationLink).toBe("rgb(255, 48, 76)");
     });
 
-    test(`should fullfill contact us form `, async ({page}) => {
+    test(`should fill contact us form `, async ({page}) => {
         await dashboard.navigate_to_automation_page();
         await automation_section.submit_contact_form_with_randon_data();
 

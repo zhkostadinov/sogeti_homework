@@ -26,7 +26,7 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: {viewport: null}
+      use: {viewport: undefined}
     },
     // {
     //   name: 'firefox',
