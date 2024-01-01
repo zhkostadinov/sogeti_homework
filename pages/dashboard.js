@@ -6,13 +6,12 @@ exports.Dashboard = class Dashboard{
         this.servicesNavLink = '//nav[@id="main-menu"]/ul/li[3]/div[1]/span';
         this.automationLink = '//a[contains(@class, "subMenuLink") and normalize-space(text()) = "Automation"]';
         this.automationPageText = '//h3[text()="Automation – Drive Business Excellence"]'
-    }
-
-    async navigate_to_url(url) {
-        await this.page.goto(url);
+        this.worldWideDropDown = '//span[@aria-label="Worldwide"]';
+        this.countryUrl = '//a[text()="CountryName"]'
     }
 
     async clickAcceptCookies() {
+        await this.page.waitForSelector(this.acceptCookies);
         await this.page.click(this.acceptCookies); 
     }
 
@@ -22,12 +21,20 @@ exports.Dashboard = class Dashboard{
 
     }
 
-    async get_current_page_url(){
-        return await this.page.url();
+    async expand_worldwide_dropdown(){
+        await this.page.waitForSelector(this.worldWideDropDown, { state: 'attached' });
+        await this.page.click(this.worldWideDropDown);
+
     }
 
+    async click_worldwide_country(country){
+        await this.page.waitForSelector(this.countryUrl.replace('CountryName', country));
+        await this.page.click(this.countryUrl.replace('CountryName', country));
+    } 
+
     async get_automation_page_text() {
-            return await this.page.locator(this.automationPageText).textContent();
+        await await this.page.waitForSelector(this.automationPageText);
+        return await this.page.locator(this.automationPageText).textContent();
     }
 
     async get_colors() {

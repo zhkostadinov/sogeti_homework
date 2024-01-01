@@ -1,16 +1,17 @@
-const { AutomationSection } = require('../../pages/automation_section');
 const {test, expect} = require('@playwright/test');
-const {Dashboard} = require('../../pages/dashboard');
+const { BrowserPage } = require('../../pages/browserPage');
+const { Dashboard } = require('../../pages/dashboard');
+const { AutomationSection } = require('../../pages/automationSection');
 
+let dashboard, browserPage, automation_section;
 
-let dashboard, automation_section;
+test.describe("Dashboard tests", ()=> {
 
-test.describe("Web tests", ()=> {
-
-    test.beforeEach(async({page})=> {
+    test.beforeEach(async({page, baseURL})=> {
+        browserPage = new BrowserPage(page);
         dashboard = new Dashboard(page);
         automation_section = new AutomationSection(page);
-        await dashboard.navigate_to_url("https://www.sogeti.com/");
+        await browserPage.navigate_to_url(baseURL);
         await dashboard.clickAcceptCookies();
     });
 
@@ -18,10 +19,9 @@ test.describe("Web tests", ()=> {
         await page.close();
     });
 
-
     test(`should land on automation page `, async ({page}) => {
         await dashboard.navigate_to_automation_page();
-        const current_url = await dashboard.get_current_page_url();
+        const current_url = await browserPage.get_current_page_url();
         const automationPageText = await dashboard.get_automation_page_text();
 
         const colors = await dashboard.get_colors();
@@ -39,5 +39,4 @@ test.describe("Web tests", ()=> {
         const captcha_value = await automation_section.get_captcha_value();
         expect(captcha_value).toBe("Invalid captcha value.");
     });
-
 });

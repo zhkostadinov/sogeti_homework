@@ -5,7 +5,6 @@ const { getContentType, convertMilisecondsToSeconds } = require("../../utils/hel
 let response_content_type, response_post_code, response_place_name;
 
 test.describe('API tests', () => {
-
     test('should response with status code 200 and content type Json for Stuttgart', 
                                                      async ({ request, stuttgartApiURL, content_type }) => {
         const getRequest = await request.get(stuttgartApiURL, {});

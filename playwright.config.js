@@ -14,6 +14,7 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    baseURL: 'https://www.sogeti.com/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     actionTimeout: 45000,

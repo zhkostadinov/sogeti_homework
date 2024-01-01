@@ -1,0 +1,62 @@
+[
+    {
+        "Country": "Belgium",
+        "URL": "https://www.sogeti.be/",
+        "Title": "Sogeti Belgium"
+    },
+    {
+        "Country": "Finland",
+        "URL": "https://www.sogeti.fi/",
+        "Title": "Sogeti | Etusivu"
+    },
+    {
+        "Country": "France",
+        "URL": "https://www.fr.sogeti.com/",
+        "Title": "Sogeti France | Gérez la transformation numérique de votre entreprise avec Sogeti"
+    },
+    {
+        "Country": "Germany",
+        "URL": "https://www.sogeti.de/",
+        "Title": "Sogeti Deutschland GmbH – Beratungsdienstleistungen für Softwaretest und Qualitätssicherung"
+    },
+    {
+        "Country": "Ireland",
+        "URL": "https://www.sogeti.ie/",
+        "Title": "Sogeti Ireland"
+    },
+    {
+        "Country": "Luxembourg",
+        "URL": "https://www.sogeti.lu/",
+        "Title": "Sogeti Luxembourg"
+    },
+    {
+        "Country": "Netherlands",
+        "URL": "https://www.sogeti.nl/",
+        "Title": ""
+    },
+    {
+        "Country": "Norway",
+        "URL": "https://www.sogeti.no/",
+        "Title": "Sogeti Norge"
+    },
+    {
+        "Country": "Spain",
+        "URL": "https://www.sogeti.es/",
+        "Title": "Sogeti España"
+    },
+    {
+        "Country": "Sweden",
+        "URL": "https://www.sogeti.se/",
+        "Title": "Sogeti Sverige"
+    },
+    {
+        "Country": "UK",
+        "URL": "https://www.uk.sogeti.com/",
+        "Title": "Sogeti UK | Software Testing Services, Digital Services, DevOps Services, DevOps Consultancy, Testing Consultancy"
+    },
+    {
+        "Country": "USA",
+        "URL": "https://www.us.sogeti.com/",
+        "Title": "Sogeti USA"
+    }
+]
