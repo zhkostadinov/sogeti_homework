@@ -7,11 +7,11 @@ let dashboard, browserPage, automation_section;
 
 test.describe("Dashboard tests", ()=> {
 
-    test.beforeEach(async({page, baseURL})=> {
+    test.beforeEach(async({page}, testInfo)=> {
         browserPage = new BrowserPage(page);
         dashboard = new Dashboard(page);
         automation_section = new AutomationSection(page);
-        await browserPage.navigate_to_url(baseURL);
+        await browserPage.navigate_to_url(testInfo.config.projects.filter(p => p.name == 'WEB')[0].use.baseURL);
         await dashboard.clickAcceptCookies();
     });
 

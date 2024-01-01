@@ -9,10 +9,10 @@ let browserPage, dashboard;
 
 test.describe("Worldwide Links tests", ()=> {
 
-    test.beforeEach(async({page, baseURL})=> {
+    test.beforeEach(async({page}, testInfo)=> {
         browserPage = new BrowserPage(page);
         dashboard = new Dashboard(page);
-        await browserPage.navigate_to_url(baseURL);
+        await browserPage.navigate_to_url(testInfo.config.projects.filter(p => p.name == 'WEB')[0].use.baseURL);
         await dashboard.clickAcceptCookies();
     });
 
@@ -24,7 +24,7 @@ test.describe("Worldwide Links tests", ()=> {
     });
 
     for(const destination of multiple_destinations){
-        test(`should see Worldwide links: ${destination.Country} , ${destination.URL}, ${destination.Title} `, 
+        test(`should see Worldwide links working: ${destination.Country} , ${destination.URL}, ${destination.Title} `, 
                                             async ({page, context}) => {
             await dashboard.expand_worldwide_dropdown();
             await dashboard.click_worldwide_country(destination.Country);

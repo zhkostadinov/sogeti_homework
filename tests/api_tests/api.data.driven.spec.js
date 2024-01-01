@@ -2,11 +2,19 @@ const {test} = require('@playwright/test');
 const { expect } = require('@playwright/test');
 const { getContentType, convertMilisecondsToSeconds } = require("../../utils/helpers");
 
-const max_execution_time_in_seconds = 1;
-const baseApiURL = "http://api.zippopotam.us";
 const multiple_destinations = JSON.parse(JSON.stringify(require('../../tests-data/login-data.json')));
+let baseApiURL, max_execution_time_in_seconds;
+
+
+
+test.beforeAll(async({}, testInfo)=> {
+    baseApiURL = testInfo.config.projects.filter(p => p.name == 'API')[0].use.baseURL;
+    max_execution_time_in_seconds = testInfo.config.projects.filter(p => p.name == 'API')[0].use.max_execution_time_in_seconds;
+});
+
 
 test.describe("API data driven tests", ()=> {
+
     for(const destination of multiple_destinations){
         test(`should response with status code 200 and content type Json: ${destination.Country} , ${destination.Postal_Code}`,
                                                                           async ({ request }) => {
@@ -20,9 +28,9 @@ test.describe("API data driven tests", ()=> {
 
         test(`should response time be below 1s: ${destination.Country} , ${destination.Postal_Code}`, 
                                                 async ({ request }) => {
-            const tmsStart = new Date()
+            const tmsStart = new Date();
             await request.get(`${baseApiURL}/${destination.Country}/${destination.Postal_Code}`, {});
-            const tmsEnd = new Date()
+            const tmsEnd = new Date();
             const response_time_seconds = await convertMilisecondsToSeconds(tmsStart, tmsEnd);
 
             expect(response_time_seconds).toBeLessThan(max_execution_time_in_seconds)

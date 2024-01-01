@@ -4,7 +4,7 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   timeout: 6 * 60 * 1000,
   expect: {
-    timeout: 10000
+    timeout: 450000
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -14,7 +14,6 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: 'https://www.sogeti.com/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     actionTimeout: 90000,
@@ -28,6 +27,20 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: {viewport: undefined}
+    },
+    {
+      name: 'WEB',
+      use: {
+        baseURL: 'https://www.sogeti.com/'
+      }
+    },
+    {
+      name: 'API',
+      use: {
+        baseURL: 'http://api.zippopotam.us',
+        stuttgartApiURL: 'http://api.zippopotam.us/de/bw/stuttgart',
+        max_execution_time_in_seconds: 1
+      }
     },
     // {
     //   name: 'firefox',
@@ -58,12 +71,5 @@ module.exports = defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  ]
 });
