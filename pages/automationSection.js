@@ -24,6 +24,7 @@ exports.AutomationSection = class AutomationSection {
         await this.page.locator(this.countryDropDown).selectOption('other');
         await this.page.locator(this.messageTextarea).fill(faker.lorem.text());
         await this.page.click(this.agreeCheckBox);
+        await this.page.waitForLoadState('networkidle');
         await this.page.waitForSelector(this.submitFormButton, { state: 'attached' });
         await this.page.dblclick(this.submitFormButton);
     }

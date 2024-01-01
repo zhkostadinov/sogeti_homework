@@ -27,7 +27,7 @@ test.describe("Worldwide Links tests", ()=> {
         test(`should see Worldwide links working: ${destination.Country} , ${destination.URL}, ${destination.Title} `, 
                                             async ({page, context}) => {
             await dashboard.expand_worldwide_dropdown();
-            await dashboard.click_worldwide_country(destination.Country);
+            await dashboard.click_worldwide_country_link(destination.Country);
 
             const newTab = await context.waitForEvent('page');
             await newTab.waitForLoadState();

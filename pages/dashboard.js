@@ -22,12 +22,14 @@ exports.Dashboard = class Dashboard{
     }
 
     async expand_worldwide_dropdown(){
+        await this.page.locator(this.worldWideDropDown).isEnabled()    
         await this.page.waitForSelector(this.worldWideDropDown, { state: 'attached' });
         await this.page.click(this.worldWideDropDown);
 
     }
 
-    async click_worldwide_country(country){
+    async click_worldwide_country_link(country){
+        await this.page.locator(this.countryUrl.replace('CountryName', country)).isEnabled()
         await this.page.waitForSelector(this.countryUrl.replace('CountryName', country), { state: 'attached' });
         await this.page.click(this.countryUrl.replace('CountryName', country));
     } 
