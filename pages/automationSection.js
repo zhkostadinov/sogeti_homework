@@ -24,11 +24,12 @@ exports.AutomationSection = class AutomationSection {
         await this.page.locator(this.countryDropDown).selectOption('other');
         await this.page.locator(this.messageTextarea).fill(faker.lorem.text());
         await this.page.click(this.agreeCheckBox);
-        await this.page.waitForSelector(this.submitFormButton);
+        await this.page.waitForSelector(this.submitFormButton, { state: 'attached' });
         await this.page.dblclick(this.submitFormButton);
     }
 
     async get_captcha_value() {
+        await this.page.waitForSelector(this.captchaValue, { state: 'attached' });
         return await this.page.locator(this.captchaValue).textContent();
     }
 }

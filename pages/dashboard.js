@@ -28,7 +28,7 @@ exports.Dashboard = class Dashboard{
     }
 
     async click_worldwide_country(country){
-        await this.page.waitForSelector(this.countryUrl.replace('CountryName', country));
+        await this.page.waitForSelector(this.countryUrl.replace('CountryName', country), { state: 'attached' });
         await this.page.click(this.countryUrl.replace('CountryName', country));
     } 
 

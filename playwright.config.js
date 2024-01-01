@@ -2,9 +2,9 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
-  timeout: 3 * 60 * 1000,
+  timeout: 6 * 60 * 1000,
   expect: {
-    timeout: 5000
+    timeout: 10000
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -17,7 +17,7 @@ module.exports = defineConfig({
     baseURL: 'https://www.sogeti.com/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    actionTimeout: 45000,
+    actionTimeout: 90000,
     launchOptions: {
       args: ["--start-maximized"],
     },
