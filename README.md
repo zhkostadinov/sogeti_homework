@@ -30,7 +30,7 @@
 # Run tests
 Check `package.json` file, section `scripts`. Every command should be executed in the project root folder under cli.
 
-Command: `npm run tests:api` - Will run api suites/tests from task API 1
+Command: `npm run tests:api` - Will run api suites/tests from task API
 
 Command: `npm run tests:web` - Will run web suites/tests from task WEB 
 
