@@ -16,7 +16,7 @@ test.beforeAll(async({}, testInfo)=> {
 test.describe("API data driven tests", ()=> {
 
     for(const destination of multiple_destinations){
-        test(`should response with status code 200 and content type Json: ${destination.Country} , ${destination.Postal_Code}`,
+        test(`should response with status code 200 and content type Json @api: ${destination.Country} , ${destination.Postal_Code}`,
                                                                           async ({ request }) => {
             const getRequest = await request.get(`${baseApiURL}/${destination.Country}/${destination.Postal_Code}`, {});
 
@@ -26,7 +26,7 @@ test.describe("API data driven tests", ()=> {
             expect(response_content_type).toBe("application/json")
         });
 
-        test(`should response time be below 1s: ${destination.Country} , ${destination.Postal_Code}`, 
+        test(`should response time be below 1s @api: ${destination.Country} , ${destination.Postal_Code}`, 
                                                 async ({ request }) => {
             const tmsStart = new Date();
             await request.get(`${baseApiURL}/${destination.Country}/${destination.Postal_Code}`, {});
@@ -36,7 +36,7 @@ test.describe("API data driven tests", ()=> {
             expect(response_time_seconds).toBeLessThan(max_execution_time_in_seconds)
         });
 
-        test(`should return specific postal code and place name: ${destination.Country} , ${destination.Postal_Code}, 
+        test(`should return specific postal code and place name @api: ${destination.Country} , ${destination.Postal_Code}, 
                                                                  ${destination.Place_Name}`, async ({ request }) => {
             const getRequest = await request.get(`${baseApiURL}/${destination.Country}/${destination.Postal_Code}`, {});
             const response = await getRequest.json();
