@@ -19,7 +19,7 @@ test.describe("Dashboard tests", ()=> {
         await page.close();
     });
 
-    test(`should land on automation page `, async ({page}) => {
+    test(`should land on automation page @web`, async ({page}) => {
         await dashboard.navigate_to_automation_page();
         const current_url = await browserPage.get_current_page_url();
         const automationPageText = await dashboard.get_automation_page_text();
@@ -32,7 +32,7 @@ test.describe("Dashboard tests", ()=> {
         expect(colors.colorAutomationLink).toBe("rgb(255, 48, 76)");
     });
 
-    test(`should fill contact us form `, async ({page}) => {
+    test(`should fill contact us form @web`, async ({page}) => {
         await dashboard.navigate_to_automation_page();
         await automation_section.submit_contact_form_with_randon_data();
 

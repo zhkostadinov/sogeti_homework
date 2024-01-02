@@ -24,7 +24,7 @@ test.describe("Worldwide Links tests", ()=> {
     });
 
     for(const destination of multiple_destinations){
-        test(`should see Worldwide links working: ${destination.Country} , ${destination.URL}, ${destination.Title} `, 
+        test(`should see Worldwide links working @web: ${destination.Country} , ${destination.URL}, ${destination.Title} `, 
                                             async ({page, context}) => {
             await dashboard.expand_worldwide_dropdown();
             await dashboard.click_worldwide_country_link(destination.Country);

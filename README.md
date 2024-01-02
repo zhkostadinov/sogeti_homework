@@ -30,12 +30,8 @@
 # Run tests
 Check `package.json` file, section `scripts`. Every command should be executed in the project root folder under cli.
 
-Command: `npm run tests:api` - Will run api tests from task API 1
+Command: `npm run tests:api` - Will run api suites/tests from task API 1
 
-Command: `npm run tests:api:testdriven` - Will run api tests from task API 2 
+Command: `npm run tests:web` - Will run web suites/tests from task WEB 
 
-Command: `npm run tests:web` - Will run Playwright interactive mode, then we can pick and run test WEB suites/tests 
-
-Command: `npm run tests:all`- Will run Playwright interactive mode, then we can pick and run test suites/tests
-
-Command: `npm run tests` - Will run all tests in silent mode  
+Command: `npm run tests` - Will run all tests with interactive mode  

@@ -10,7 +10,7 @@ test.beforeAll(async({}, testInfo)=> {
 });
 
 test.describe('API tests', () => {
-    test('should response with status code 200 and content type Json for Stuttgart', async ({ request, content_type }) => {
+    test('should response with status code 200 and content type Json for Stuttgart @api', async ({ request, content_type }) => {
         const getRequest = await request.get(stuttgartApiURL, {});
     
         const response_content_type = await getContentType(getRequest._headers._headersArray);
@@ -19,7 +19,7 @@ test.describe('API tests', () => {
         expect(response_content_type).toBe(content_type)
     });
     
-    test('should response time be below 1s for Stuttgart', async ({ request }) => {
+    test('should response time be below 1s for Stuttgart @api', async ({ request }) => {
         const tmsStart = new Date()
         await request.get(stuttgartApiURL, {});
         const tmsEnd = new Date()
@@ -28,7 +28,7 @@ test.describe('API tests', () => {
         expect(response_time_seconds).toBeLessThan(max_execution_time_in_seconds)
     });
     
-    test('should return specific contry and state for Stuttgart', 
+    test('should return specific contry and state for Stuttgart @api', 
                                                     async ({ request, country_ger, state_ger }) => {
         const getRequest = await request.get(stuttgartApiURL, {});
     
@@ -37,7 +37,7 @@ test.describe('API tests', () => {
         expect(response.state).toBe(state_ger)
     });
     
-    test('should return specific post code and place name for Stuttgart', 
+    test('should return specific post code and place name for Stuttgart @api', 
                                             async ({ request, post_code_ger, place_name_ger }) => {
         const getRequest = await request.get(stuttgartApiURL, {});
     
