@@ -1,0 +1,7 @@
+Notes from the test development:
+
+Web tests:
+
+Test case 2: The reCaptcha anti-bot solution could be removed from a different environment than production. The idea of that service is to prevent bots and automated scripts from flooding the application. During the testing with scripts, one of the possible solutions here is to pass separate test keys (site key and secret key). The test is clicking over the submit button and expecting the "Invalid captcha value" to be shown, but that does not happen every time. I assume this is due to the slow response time from the service.
+
+Test case 3: The drop-down list is not always attached to the DOM. That makes tests behave poorly. I did increase the timeout (from 4.5 to 9 seconds), but I would suggest to check the performance of that piece of code that services the functionality. Another thing is that when the links are working, not every time, that page has a title. That title is empty, or not. I assume the service that populates the title is also slow. For example, France and the Netherlands are failing mostly with the mentioned issue. From 10 runs, 2-4 will fail. That is around 20–40% failures.
