@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const { test } = require("../../utils/static_data");
+const { test } = require("../../tests-data/static_data");
 const { getContentType, convertMilisecondsToSeconds } = require("../../utils/helpers");
 
 let stuttgartApiURL, max_execution_time_in_seconds;
