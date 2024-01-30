@@ -34,4 +34,4 @@ Command: `npm run tests:api` - Will run api suites/tests from task API
 
 Command: `npm run tests:web` - Will run web suites/tests from task WEB 
 
-Command: `npm run all` - Will run all tests with interactive mode  
+Command: `npm run tests:all` - Will run all tests with interactive mode  
